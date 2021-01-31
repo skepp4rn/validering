@@ -1,47 +1,55 @@
 let users = []
+
 let form = document.getElementById('form');
+let firstname = document.getElementById('firstname');
+let lastname = document.getElementById('lastname');
+let email = document.getElementById('email');
+let check = false;
 let list = document.querySelector('#list');
 let change = false;
 let userId; 
-let btn = document.getElementById('btn');
-let h = document.getElementById('h');
-let firstName = document.getElementById('firstName');
-let lastName = document.getElementById('lastName');
-let email = document.getElementById('email');
-let check = false;
+let subbtn = document.getElementById('subbtn');
+let rubriken = document.getElementById('rubriken');
+
+
 const listelement = () => { 
     list.innerHTML = ''
-     users.forEach(user => {
+
+    users.forEach(user => {
         list.innerHTML += `
             <div id="${user.id}" class="userbox">
                 <div class="userinput">
-                    <h4> ${user.firstName} ${user.lastName}</h4>
+                    <h4> ${user.firstname} ${user.lastname}</h4>
                     <h6>${user.email}</h6>
                     <p class="uid">${user.id}</p>
                 </div>
                 <div class="changeandremove">
-                    <button class="change">Ändra</button>
-                    <button class="remove">Ta bort</button>
+                    <button class="change">Change</button>
+                    <button class="remove">Remove</button>
                 </div>
             </div>`  
     });
 }
 listelement();
 
+
 form.addEventListener('submit', (e) => {
     e.preventDefault();
 
     if(change === true) {
         users = changeInput(userId)
-        btn.innerText='Submit';
-        h.innerText='Create Account';
+        subbtn.innerText='Submit';
+        rubriken.innerText='Create Account';
+
         change = false;
         listelement();
-        removeinput(firstName);
-        removeinput(lastName);
+
+        removeinput(firstname);
+        removeinput(lastname);
         removeinput(email);
-        firstName.value = '';
-        lastName.value = '';
+
+        firstname.value = '';
+        lastname.value = '';
         email.value = '';
 
         return
@@ -50,26 +58,26 @@ form.addEventListener('submit', (e) => {
     checkInputs();
 
     if (check == true) {
-        removeinput(firstName);
-        removeinput(lastName);
+        removeinput(firstname);
+        removeinput(lastname);
         removeinput(email);
 
         if(users.some(user => user.email === email.value)){
-            setErrorFor(email, `Denna email finns redan registrerad!`);
+            setErrorFor(email, `Email already exist`);
             return false
         }
 
         let newuser = {
             id: uuidv4(),
-            firstName: firstName.value,
-            lastName: lastName.value,
+            firstname: firstname.value,
+            lastname: lastname.value,
             email: email.value
         }
         users.push(newuser);
         listelement();
 
-        firstName.value = '';
-        lastName.value = '';
+        firstname.value = '';
+        lastname.value = '';
         email.value = '';
     }
 });
@@ -81,28 +89,29 @@ function removeinput(input) {
 
 
 function checkInputs() {
-    let firstNameValue = firstName.value.trim();
-    let lastNameValue = lastName.value.trim();
+    let firstnameValue = firstname.value.trim();
+    let lastnameValue = lastname.value.trim();
     let emailValue = email.value.trim();
-    if(firstNameValue === ``) {
-    setErrorFor(firstName, `Du måste fylla i ditt förnamn!`);
+
+    if(firstnameValue === ``) {
+    setErrorFor(firstname, `Firstname cannot be blank`);
 
     } else {
-        setSuccessFor(firstName);
+        setSuccessFor(firstname);
     }
 
-    if(lastNameValue === ``) {
-        setErrorFor(lastName, `Du måste fylla i ditt efternamn!`);
+    if(lastnameValue === ``) {
+        setErrorFor(lastname, `Lastname cannot be blank`);
     
     } else {
-        setSuccessFor(lastName);
+        setSuccessFor(lastname);
     }
 
     if(emailValue === ``) {
-        setErrorFor(email, `Du måste fylla i din email!`);
+        setErrorFor(email, `Email cannot be blank`);
     
     } else if(!isEmail(emailValue)) {
-        setErrorFor(email, `Du måste fylla i en giltig email!`);
+        setErrorFor(email, `Email is not valid`);
 
     } else {
         setSuccessFor(email);
@@ -134,16 +143,19 @@ list.addEventListener('click', (e) => {
         listelement();
     }
     else if(e.target.classList.contains('change')) {
-        btn.innerText='Spara ändringar';
-        h.innerText='Ändra dina uppgifter';
+        subbtn.innerText='Submit Change';
+        rubriken.innerText='Change Information';
+
         change = true
         userId = e.target.parentNode.parentNode.id;
+
         let user = users.find(user => user.id == e.target.parentNode.parentNode.id)
-        let firstName = user.firstName;
-        let lastName = user.lastName;
+        let firstname = user.firstname;
+        let lastname = user.lastname;
         let email = user.email;
-        document.querySelector('#firstName').value=firstName;
-        document.querySelector('#lastName').value=lastName;
+
+        document.querySelector('#firstname').value=firstname;
+        document.querySelector('#lastname').value=lastname;
         document.querySelector('#email').value=email;
 
     }
@@ -155,8 +167,8 @@ function changeInput(id){
         if(user.id === id)
         return {
             id: user.id,
-            firstName: firstName.value,
-            lastName: lastName.value,
+            firstname: firstname.value,
+            lastname: lastname.value,
             email: email.value
         }
         return user;

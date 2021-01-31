@@ -1,17 +1,21 @@
 let users = []
+
 let form = document.getElementById('form');
+let firstName = document.getElementById('firstName');
+let lastName = document.getElementById('lastName');
+let email = document.getElementById('email');
+let check = false;
 let list = document.querySelector('#list');
 let change = false;
 let userId; 
 let btn = document.getElementById('btn');
 let h = document.getElementById('h');
-let firstName = document.getElementById('firstName');
-let lastName = document.getElementById('lastName');
-let email = document.getElementById('email');
-let check = false;
+
+
 const listelement = () => { 
     list.innerHTML = ''
-     users.forEach(user => {
+
+    users.forEach(user => {
         list.innerHTML += `
             <div id="${user.id}" class="userbox">
                 <div class="userinput">
@@ -28,18 +32,22 @@ const listelement = () => {
 }
 listelement();
 
+
 form.addEventListener('submit', (e) => {
     e.preventDefault();
 
     if(change === true) {
         users = changeInput(userId)
-        btn.innerText='Submit';
+        btn.innerText='Spara';
         h.innerText='Create Account';
+
         change = false;
         listelement();
+
         removeinput(firstName);
         removeinput(lastName);
         removeinput(email);
+
         firstName.value = '';
         lastName.value = '';
         email.value = '';
@@ -61,8 +69,8 @@ form.addEventListener('submit', (e) => {
 
         let newuser = {
             id: uuidv4(),
-            firstName: firstName.value,
-            lastName: lastName.value,
+            firstname: firstName.value,
+            lastname: lastName.value,
             email: email.value
         }
         users.push(newuser);
@@ -84,6 +92,7 @@ function checkInputs() {
     let firstNameValue = firstName.value.trim();
     let lastNameValue = lastName.value.trim();
     let emailValue = email.value.trim();
+
     if(firstNameValue === ``) {
     setErrorFor(firstName, `Du måste fylla i ditt förnamn!`);
 
@@ -136,14 +145,17 @@ list.addEventListener('click', (e) => {
     else if(e.target.classList.contains('change')) {
         btn.innerText='Spara ändringar';
         h.innerText='Ändra dina uppgifter';
+
         change = true
         userId = e.target.parentNode.parentNode.id;
+
         let user = users.find(user => user.id == e.target.parentNode.parentNode.id)
         let firstName = user.firstName;
         let lastName = user.lastName;
         let email = user.email;
-        document.querySelector('#firstName').value=firstName;
-        document.querySelector('#lastName').value=lastName;
+
+        document.querySelector('#firstname').value=firstName;
+        document.querySelector('#lastname').value=lastName;
         document.querySelector('#email').value=email;
 
     }
@@ -155,8 +167,8 @@ function changeInput(id){
         if(user.id === id)
         return {
             id: user.id,
-            firstName: firstName.value,
-            lastName: lastName.value,
+            firstname: firstName.value,
+            lastname: lastName.value,
             email: email.value
         }
         return user;

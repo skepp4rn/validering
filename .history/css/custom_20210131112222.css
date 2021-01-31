@@ -35,7 +35,7 @@ body {
     display: inline-block;
     margin-bottom: 0.5rem;
     font-family: inherit;
-    font-size: 14pt;
+    font-size: 15pt;
 }
 
 .form-control input {
@@ -46,7 +46,7 @@ body {
     margin-bottom: 0.5rem;
     padding: 0.7rem;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 10pt;
+    font-size: 14pt;
 }
 
 .form-control.success input {
@@ -131,14 +131,12 @@ button {
     grid-template-columns: 2fr 1fr;
 }
 
-.userbox {
-    padding: 1rem;
-    border-bottom: 2px solid #ffffff;
-}
-
 .usersinput {
     margin-top: 3rem;
 }
 
-
+.userbox {
+    padding: 1rem;
+    border-bottom: 2px solid #ffffff;
+}
 

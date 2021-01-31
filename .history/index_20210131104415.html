@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://kit.fontawesome.com/ef4c0722a8.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.min.css">
+     
+    <title>Registrera dig</title>
+</head>
+<body>
+    <section class="container">
+        <div class="centrerade">
+            <div class="welcome">
+                <h2>Kul att du vill registrera dig!</h2>
+                <p>Fyll i dina uppgifter i formuläret nedan och kom igång redan idag!</p>
+            </div>
+        </div>
+    </section>
+    <form class="container" oninput='up2.setCustomValidity(up2.value != up.value ? "Passwords do not match." : "")'>
+        <div class="linje"></div>
+        <div>
+            <h3>Personuppgifter</h3>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label for="firstname">Förnamn</label>
+                <input id="firstname" type="text" class="form-control" required>
+            </div>
+            <div class="col">
+                <label for="lastname">Efternamn</label>
+                <input id="lastname" type="text" class="form-control" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">E-post</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="exempel@exempel.com" required>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Lösenord</label>
+                    <input type="password" class="form-control" name="up" id="exampleInputPassword1" required>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group space">
+                    <label for="exampleInputPassword2">Bekräfta Lösenord</label>
+                    <input type="password" class="form-control" name="up2" id="exampleInputPassword2" required>
+                </div>
+            </div>
+        </div>
+        <div class="linje"></div>
+        <div>
+            <h3>Faktureringsadress</h3>
+        </div>
+        <div class="form-group">
+            <label for="inputAddress">Adress</label>
+            <input type="text" class="form-control" id="inputAddress" placeholder="Vasagatan 1A" required>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-2">
+                <label for="inputZip">Postkod</label>
+                <input type="text" class="form-control" id="inputZip" placeholder="123 45" required>
+            </div>
+            <div class="form-group col-md-6 bottenspace">
+                <label for="inputCity">Stad</label>
+                <input type="text" class="form-control" id="inputCity" required>
+            </div>
+        </div>
+        <div class="linje"></div>
+        <div>
+            <h3>Leveransadress</h3>
+        </div>
+        <div class="form-group">
+            <label for="inputAddress">Adress</label>
+            <input type="text" class="form-control" id="inputAddress" placeholder="Vasagatan 1A" required>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-2">
+                <label for="inputZip">Postkod</label>
+                <input type="text" class="form-control" id="inputZip" placeholder="123 45" required>
+            </div>
+            <div class="form-group col-md-6 bottenspace">
+                <label for="inputCity">Stad</label>
+                <input type="text" class="form-control" id="inputCity" required>
+            </div>
+        </div>
+        <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+            <label class="form-check-label" for="exampleCheck1">Jag godkänner <a class="linktext" href="anvandrarvillkor.html">användarvillkoren</a> och <a class="linktext" href="GDPR.html">GDPR</a></label>
+        </div>
+        <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck2">
+            <label class="form-check-label" for="exampleCheck1">Jag vill ha erbjudande och nyhetsbrev (enligt GDPR)</label>
+        </div>
+        <div class="centreradknapp">
+            <button formaction="tacksida.html" type="submit" class="colorbutton btn btn-primary">Skicka</button>
+        </div>
+        <div class="whitespace"></div>
+    </form>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+</body>
+</html>

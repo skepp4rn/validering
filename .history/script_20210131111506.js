@@ -9,6 +9,8 @@ let firstName = document.getElementById('firstName');
 let lastName = document.getElementById('lastName');
 let email = document.getElementById('email');
 let check = false;
+
+
 const listelement = () => { 
     list.innerHTML = ''
      users.forEach(user => {
@@ -28,18 +30,22 @@ const listelement = () => {
 }
 listelement();
 
-form.addEventListener('submit', (e) => {
+
+form.addEventListener('Spara', (e) => {
     e.preventDefault();
 
     if(change === true) {
         users = changeInput(userId)
         btn.innerText='Submit';
         h.innerText='Create Account';
+
         change = false;
         listelement();
+
         removeinput(firstName);
         removeinput(lastName);
         removeinput(email);
+
         firstName.value = '';
         lastName.value = '';
         email.value = '';
@@ -84,6 +90,7 @@ function checkInputs() {
     let firstNameValue = firstName.value.trim();
     let lastNameValue = lastName.value.trim();
     let emailValue = email.value.trim();
+
     if(firstNameValue === ``) {
     setErrorFor(firstName, `Du måste fylla i ditt förnamn!`);
 
@@ -136,12 +143,15 @@ list.addEventListener('click', (e) => {
     else if(e.target.classList.contains('change')) {
         btn.innerText='Spara ändringar';
         h.innerText='Ändra dina uppgifter';
+
         change = true
         userId = e.target.parentNode.parentNode.id;
+
         let user = users.find(user => user.id == e.target.parentNode.parentNode.id)
         let firstName = user.firstName;
         let lastName = user.lastName;
         let email = user.email;
+
         document.querySelector('#firstName').value=firstName;
         document.querySelector('#lastName').value=lastName;
         document.querySelector('#email').value=email;
