@@ -88,14 +88,14 @@ function checkInputs() {
     setErrorFor(firstName, `Du måste fylla i ditt förnamn!`);
 
     } else {
-        setSuccessFor(firstName);
+        setSuccessFor(firstName, `Ser bra ut!`);
     }
 
     if(lastNameValue === ``) {
         setErrorFor(lastName, `Du måste fylla i ditt efternamn!`);
     
     } else {
-        setSuccessFor(lastName);
+        setSuccessFor(lastName, `Ser bra ut!`);
     }
 
     if(emailValue === ``) {

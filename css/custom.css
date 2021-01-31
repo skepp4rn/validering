@@ -1,12 +1,12 @@
 *{
     box-sizing: border-box;
     margin: 0;
-    padding: 0;
+	padding: 0;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
     background-color: #746bf3;
-    font-family: Arial, Helvetica, sans-serif;
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
@@ -34,7 +34,6 @@ body {
 .form-control label {
     display: inline-block;
     margin-bottom: 0.5rem;
-    font-family: inherit;
     font-size: 14pt;
 }
 
@@ -45,7 +44,6 @@ body {
     width: 100%;
     margin-bottom: 0.5rem;
     padding: 0.7rem;
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 10pt;
 }
 
@@ -60,8 +58,8 @@ body {
 .form-control i {
     visibility: hidden;
     position: absolute;
-    top: 3.7rem;
-    right: 1.5rem;
+    top: 3.8rem;
+    right: 1.6rem;
 }
 
 .form-control.success i {
@@ -89,11 +87,10 @@ body {
 
 .form button {
     border: none;
-    border-radius: 5px;
+    border-radius: 3px;
     padding: 0.5rem;
     background-color: #7688f0;
     color: #ffffff;
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 14pt;
     display: block;
     width: 100%;
@@ -106,23 +103,9 @@ button {
     padding: 0.5rem;
     background-color: #6e70e7;
     color: #ffffff;
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 10pt;
     display: block;
     height: 3rem;
-}
-
-.remove {
-    border: none;
-    border-radius: 5px;
-    padding: 0.5rem;
-    background-color: red;
-    color: #ffffff;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 10pt;
-    display: block;
-    height: 3rem;
-    width: 6.5rem;
 }
 
 .changeandremove {
@@ -131,14 +114,30 @@ button {
     grid-template-columns: 2fr 1fr;
 }
 
+.remove {
+    border: none;
+    border-radius: 3px;
+    padding: 0.5rem;
+    background-color: red;
+    color: #ffffff;
+    font-size: 10pt;
+    display: block;
+    height: 3rem;
+    width: 6.5rem;
+}
+
+
+
+.usersinput {
+    margin-top: 3rem;
+}
+
 .userbox {
     padding: 1rem;
     border-bottom: 2px solid #ffffff;
 }
 
-.usersinput {
-    margin-top: 3rem;
-}
+
 
 
 
